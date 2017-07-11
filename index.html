@@ -1,1 +1,193 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jewel Collector</title>
+	<!-- Reset CSS File -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!-- Bootstrap File -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- CSS Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
+</head>
+	
+<body>
+	<!-- JQuery -->
+ 	<script
+  	src="https://code.jquery.com/jquery-3.2.1.min.js"
+  	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  	crossorigin="anonymous"></script>
+	
+	<!--layout outer container-->
+	<div class="container">
+		 
+		<!--heading container-->
+		<div class="jumbotron">
+			<h1 class="text-center"><strong>Crystal Collectors Game</strong></h1>
+			
+		</div>
+		<!--first row with instructions-->
+		<div class="row">
+			<div class="instructions col-lg-6">
+				<p>You will be given a random number at the start of the game.</p>
+				<p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+				<p>You win the game by matching your total score to the random number, you lose the game if your total score goes over the random number.</p>
+				<p>The value of each crystal is hidden from you until you click on it.</p>
+				<p>Each time the game restarts the value of the crystals will be reset.</p>
+			</div>	
+		</div>
+		<!--second row with panels from aim number and wins/losses-->
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">Number to Guess</div>
+						<div class="panel-body" id= "targetNumber">
+						<!--random numbert generator-->
+
+							<script type="text/javascript">
+								
+								function generateRandomNumber(){
+								document.getElementById("targetNumber").innerHTML = target;
+								};
+
+							</script>
+
+
+						</div>
+				</div>
+			</div>
+			<div class="winLoss col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">Results</div>
+						<div class="panel-body">
+							<div id="game">
+          						<ul class="list-group">
+            						<li class="list-group-item"><p id="wins">Wins: </p></li>
+           							<li class="list-group-item"><p id="losses">Losses: </p></li>
+            			
+          						</ul>  
+        					</div>
+						</div>
+
+				</div>
+				
+			</div>
+		</div>
+		<div class="row">
+		<!--crystal images-->
+			<div class="col-lg-12">
+				<img id="crystalRed" src="assets/images/redjewel.png">
+				<img id="crystalWhite" src="assets/images/whitejewel.png">
+				<img id="crystalGreen" src="assets/images/greenjewel.png">
+				<img id="crystalBlue" src="assets/images/bluejewel.png">
+				<!--active crystal content-->
+				<script type="text/javascript">
+					var wins = 0;
+					var losses = 0;
+					/*target number*/
+					var targetNumber = Math.floor(Math.random()*120)+19;
+					
+					$("#targetNumber").text(targetNumber);
+
+					var counter = 0;
+					$("#crystalRed").on("click", function(){
+
+						counter += Math.floor(Math.random()*12)+1;
+
+						alert("You have " + counter + " crystals!")
+
+						if (counter === targetNumber) {
+							wins++;
+                		// Then we win and we'll update the html to display the win
+                			document.querySelector('#wins').innerHTML = "Wins: " + wins;
+							alert("You Win!");
+							reset();
+
+						}
+						
+						else if (counter >= targetNumber) {
+							losses++;
+            				// Then we lose and we'll update the html to display the loss
+           					 document.querySelector('#losses').innerHTML = "Losses: " + losses;
+							alert("You Lose! Good-day!")
+							reset();
+						}
+
+					});
+					$("#crystalWhite").on("click", function(){
+						counter += Math.floor(Math.random()*12)+1;
+
+						alert("You have " + counter + " crystals!")
+
+						if (counter === targetNumber) {
+							wins++;
+                		// Then we win and we'll update the html to display the win
+                			document.querySelector('#wins').innerHTML = "Wins: " + wins;
+							alert("You Win!");
+							reset();
+
+						}
+						else if (counter >= targetNumber) {
+							losses++;
+            				// Then we lose and we'll update the html to display the loss
+           					 document.querySelector('#losses').innerHTML = "Losses: " + losses;
+							alert("You Lose! Good-day!")
+							reset();
+						}
+
+					});
+					$("#crystalGreen").on("click", function(){
+						counter += Math.floor(Math.random()*12)+1;
+
+						alert("You have " + counter + " crystals!")
+
+						if (counter === targetNumber) {
+							wins++;
+                		// Then we win and we'll update the html to display the win
+                			document.querySelector('#wins').innerHTML = "Wins: " + wins;
+							alert("You Win!");
+							reset();
+
+						}
+						else if (counter >= targetNumber) {
+							losses++;
+            				// Then we lose and we'll update the html to display the loss
+           					 document.querySelector('#losses').innerHTML = "Losses: " + losses;
+							alert("You Lose! Good-day!")
+							reset();
+						}
+					});
+					$("#crystalBlue").on("click", function(){
+						counter += Math.floor(Math.random()*12)+1;
+
+						alert("You have " + counter + " crystals!")
+
+						/*conditional*/
+						if (counter === targetNumber) {
+							wins++;
+                		// Then we win and we'll update the html to display the win
+                			document.querySelector('#wins').innerHTML = "Wins: " + wins;
+							alert("You Win!");
+							reset();
+						}
+						else if (counter >= targetNumber) {
+							losses++;
+            				// Then we lose and we'll update the html to display the loss
+           					 document.querySelector('#losses').innerHTML = "Losses: " + losses;
+							alert("You Lose! Good-day!")
+							reset();
+						}
+
+					});
+					var reset = function() {
+						counter = 0;
+					};
+					
+				</script>
+			</div>
+			
+		</div>
+	</div>
+
+</body>
+</html>

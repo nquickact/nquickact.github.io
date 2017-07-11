@@ -1,0 +1,36 @@
+.jumbotron {
+	color: teal;
+}
+body {
+	background-image: url("http://www.hdwallpaperspulse.com/wp-content/uploads/2016/08/24/blue-wallpaper-hd.jpg");
+}
+
+.instructions {
+	background-color: #E6E6FA;
+	padding: 20px;
+	font-size: 20px;
+	font-family: times, serif;
+	margin-left: 20px;
+}
+#targetNumber {
+	font-size: 40px;
+	background-color: white;
+	color:green;
+	line-height: 40px;
+}
+#crystalRed {
+	width: 100px;
+	height: 100px;
+}
+#crystalWhite {
+	width: 100px;
+	height: 100px;
+}
+#crystalGreen {
+	width: 100px;
+	height: 100px;
+}
+#crystalBlue {
+	width: 100px;
+	height: 100px;
+}
